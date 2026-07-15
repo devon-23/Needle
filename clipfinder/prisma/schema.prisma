@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Video {
+  id          String   @id @default(cuid())
+  title       String
+  youtubeId   String   @unique
+  creator     String?
+  description String?
+  transcript  String?
+
+  createdAt DateTime @default(now())
+
+  tags Tag[]
+}
+
+model Tag {
+  id      String @id @default(cuid())
+  name    String
+
+  videoId String
+  video   Video @relation(fields: [videoId], references: [id], onDelete: Cascade)
+}
