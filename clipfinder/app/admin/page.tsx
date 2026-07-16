@@ -10,22 +10,36 @@ export default function AdminPage() {
   const [tags, setTags] = useState("");
 
   
-  async function addVideo() {
+ async function addVideo() {
 
-    await fetch("/api/videos", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        url,
-        title,
-        tags,
-        }),
-    });
+  const response = await fetch("/api/videos", {
+    method: "POST",
+    headers:{
+      "Content-Type":"application/json",
+    },
+    body: JSON.stringify({
+      url,
+      title,
+      tags,
+    }),
+  });
 
-    alert("Video added!");
+
+  const data = await response.json();
+
+
+  if (!response.ok) {
+    alert(data.error);
+    return;
   }
+
+
+  setUrl("");
+  setTitle("");
+  setTags("");
+
+  alert("Video added!");
+}
 
 
   return (

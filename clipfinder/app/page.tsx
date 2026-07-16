@@ -1,22 +1,46 @@
-export default function Home() {
-  return (
-    <main className="min-h-screen bg-neutral-950 text-white flex flex-col items-center justify-center px-6">
-      <h1 className="text-6xl font-bold mb-4">ClipFinder</h1>
+import { prisma } from "@/lib/prisma";
+import VideoCard from "@/components/VideoCard";
+import SearchBar from "@/components/SearchBar";
 
-      <p className="text-neutral-400 text-center max-w-xl mb-10">
+export default async function Home() {
+
+  const videos = await prisma.video.findMany({
+  orderBy:{
+    createdAt:"desc"
+  },
+  include:{
+    tags:true,
+  }
+});
+
+
+  return (
+    <main className="min-h-screen bg-neutral-950 text-white p-10">
+
+      <h1 className="text-6xl font-bold mb-4">
+        ClipFinder
+      </h1>
+
+
+      <p className="text-neutral-400 mb-10">
         Find internet videos by describing what you remember.
       </p>
+      <SearchBar />
 
-      <div className="w-full max-w-2xl flex gap-3">
-        <input
-          className="flex-1 rounded-lg bg-neutral-900 border border-neutral-700 px-4 py-3 outline-none focus:border-blue-500"
-          placeholder="A guy says road work ahead..."
-        />
+      <div className="grid gap-8 max-w-3xl">
 
-        <button className="bg-blue-600 hover:bg-blue-700 rounded-lg px-6 font-semibold transition">
-          Search
-        </button>
+        {videos.map((video) => (
+          <VideoCard
+            key={video.id}
+            title={video.title}
+            youtubeId={video.youtubeId}
+            description={video.description}
+            tags={video.tags}
+          />
+        ))}
+
       </div>
+
     </main>
   );
 }
