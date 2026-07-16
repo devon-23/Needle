@@ -35,6 +35,8 @@ export default async function Home() {
             title={video.title}
             youtubeId={video.youtubeId}
             description={video.description}
+            creator={video.creator}
+            thumbnail={video.thumbnail}
             tags={video.tags}
           />
         ))}

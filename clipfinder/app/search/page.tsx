@@ -71,6 +71,8 @@ const videos = await prisma.video.findMany({
             title={video.title}
             youtubeId={video.youtubeId}
             description={video.description}
+            creator={video.creator}
+            thumbnail={video.thumbnail}
             tags={video.tags}
           />
         ))}

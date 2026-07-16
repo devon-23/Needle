@@ -597,6 +597,7 @@ export const VideoScalarFieldEnum = {
   title: 'title',
   youtubeId: 'youtubeId',
   creator: 'creator',
+  thumbnail: 'thumbnail',
   description: 'description',
   transcript: 'transcript',
   createdAt: 'createdAt'

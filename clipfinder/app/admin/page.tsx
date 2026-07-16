@@ -59,14 +59,14 @@ export default function AdminPage() {
           onChange={(e)=>setUrl(e.target.value)}
         />
 
-
+      {/*  
         <input
           className="w-full rounded-lg bg-neutral-900 border border-neutral-700 p-3"
           placeholder="Title"
           value={title}
           onChange={(e)=>setTitle(e.target.value)}
         />
-
+      */}
 
         <input
           className="w-full rounded-lg bg-neutral-900 border border-neutral-700 p-3"

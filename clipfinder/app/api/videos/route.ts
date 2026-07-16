@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { extractYoutubeId } from "@/lib/youtube";
 import { NextResponse } from "next/server";
+import { getYoutubeVideoData } from "@/services/youtube";
 
 
 export async function POST(request: Request) {
@@ -8,6 +9,17 @@ export async function POST(request: Request) {
   const body = await request.json();
 
   const youtubeId = extractYoutubeId(body.url);
+  const youtubeData = await getYoutubeVideoData(
+  youtubeId!
+);
+
+
+if (!youtubeData) {
+  return NextResponse.json(
+    {error:"Could not find YouTube video"},
+    {status:404}
+  );
+}
 
 
   if (!youtubeId) {
@@ -42,15 +54,19 @@ export async function POST(request: Request) {
 
 
   const video = await prisma.video.create({
-    data: {
-      title: body.title,
+    data:{
+      title: youtubeData.title,
       youtubeId,
 
-      tags: {
+      creator: youtubeData.channel,
+      thumbnail: youtubeData.thumbnail,
+      description: youtubeData.description,
+
+      tags:{
         create: tags.map((tag:string)=>({
-          name: tag,
-        })),
-      },
+          name:tag
+        }))
+      }
     },
 
     include:{

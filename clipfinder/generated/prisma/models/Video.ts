@@ -29,6 +29,7 @@ export type VideoMinAggregateOutputType = {
   title: string | null
   youtubeId: string | null
   creator: string | null
+  thumbnail: string | null
   description: string | null
   transcript: string | null
   createdAt: Date | null
@@ -39,6 +40,7 @@ export type VideoMaxAggregateOutputType = {
   title: string | null
   youtubeId: string | null
   creator: string | null
+  thumbnail: string | null
   description: string | null
   transcript: string | null
   createdAt: Date | null
@@ -49,6 +51,7 @@ export type VideoCountAggregateOutputType = {
   title: number
   youtubeId: number
   creator: number
+  thumbnail: number
   description: number
   transcript: number
   createdAt: number
@@ -61,6 +64,7 @@ export type VideoMinAggregateInputType = {
   title?: true
   youtubeId?: true
   creator?: true
+  thumbnail?: true
   description?: true
   transcript?: true
   createdAt?: true
@@ -71,6 +75,7 @@ export type VideoMaxAggregateInputType = {
   title?: true
   youtubeId?: true
   creator?: true
+  thumbnail?: true
   description?: true
   transcript?: true
   createdAt?: true
@@ -81,6 +86,7 @@ export type VideoCountAggregateInputType = {
   title?: true
   youtubeId?: true
   creator?: true
+  thumbnail?: true
   description?: true
   transcript?: true
   createdAt?: true
@@ -164,6 +170,7 @@ export type VideoGroupByOutputType = {
   title: string
   youtubeId: string
   creator: string | null
+  thumbnail: string | null
   description: string | null
   transcript: string | null
   createdAt: Date
@@ -195,6 +202,7 @@ export type VideoWhereInput = {
   title?: Prisma.StringFilter<"Video"> | string
   youtubeId?: Prisma.StringFilter<"Video"> | string
   creator?: Prisma.StringNullableFilter<"Video"> | string | null
+  thumbnail?: Prisma.StringNullableFilter<"Video"> | string | null
   description?: Prisma.StringNullableFilter<"Video"> | string | null
   transcript?: Prisma.StringNullableFilter<"Video"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Video"> | Date | string
@@ -206,6 +214,7 @@ export type VideoOrderByWithRelationInput = {
   title?: Prisma.SortOrder
   youtubeId?: Prisma.SortOrder
   creator?: Prisma.SortOrderInput | Prisma.SortOrder
+  thumbnail?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   transcript?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -220,6 +229,7 @@ export type VideoWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.VideoWhereInput | Prisma.VideoWhereInput[]
   title?: Prisma.StringFilter<"Video"> | string
   creator?: Prisma.StringNullableFilter<"Video"> | string | null
+  thumbnail?: Prisma.StringNullableFilter<"Video"> | string | null
   description?: Prisma.StringNullableFilter<"Video"> | string | null
   transcript?: Prisma.StringNullableFilter<"Video"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Video"> | Date | string
@@ -231,6 +241,7 @@ export type VideoOrderByWithAggregationInput = {
   title?: Prisma.SortOrder
   youtubeId?: Prisma.SortOrder
   creator?: Prisma.SortOrderInput | Prisma.SortOrder
+  thumbnail?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
   transcript?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -247,6 +258,7 @@ export type VideoScalarWhereWithAggregatesInput = {
   title?: Prisma.StringWithAggregatesFilter<"Video"> | string
   youtubeId?: Prisma.StringWithAggregatesFilter<"Video"> | string
   creator?: Prisma.StringNullableWithAggregatesFilter<"Video"> | string | null
+  thumbnail?: Prisma.StringNullableWithAggregatesFilter<"Video"> | string | null
   description?: Prisma.StringNullableWithAggregatesFilter<"Video"> | string | null
   transcript?: Prisma.StringNullableWithAggregatesFilter<"Video"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Video"> | Date | string
@@ -257,6 +269,7 @@ export type VideoCreateInput = {
   title: string
   youtubeId: string
   creator?: string | null
+  thumbnail?: string | null
   description?: string | null
   transcript?: string | null
   createdAt?: Date | string
@@ -268,6 +281,7 @@ export type VideoUncheckedCreateInput = {
   title: string
   youtubeId: string
   creator?: string | null
+  thumbnail?: string | null
   description?: string | null
   transcript?: string | null
   createdAt?: Date | string
@@ -279,6 +293,7 @@ export type VideoUpdateInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   youtubeId?: Prisma.StringFieldUpdateOperationsInput | string
   creator?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  thumbnail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   transcript?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -290,6 +305,7 @@ export type VideoUncheckedUpdateInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   youtubeId?: Prisma.StringFieldUpdateOperationsInput | string
   creator?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  thumbnail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   transcript?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -301,6 +317,7 @@ export type VideoCreateManyInput = {
   title: string
   youtubeId: string
   creator?: string | null
+  thumbnail?: string | null
   description?: string | null
   transcript?: string | null
   createdAt?: Date | string
@@ -311,6 +328,7 @@ export type VideoUpdateManyMutationInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   youtubeId?: Prisma.StringFieldUpdateOperationsInput | string
   creator?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  thumbnail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   transcript?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -321,6 +339,7 @@ export type VideoUncheckedUpdateManyInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   youtubeId?: Prisma.StringFieldUpdateOperationsInput | string
   creator?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  thumbnail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   transcript?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -331,6 +350,7 @@ export type VideoCountOrderByAggregateInput = {
   title?: Prisma.SortOrder
   youtubeId?: Prisma.SortOrder
   creator?: Prisma.SortOrder
+  thumbnail?: Prisma.SortOrder
   description?: Prisma.SortOrder
   transcript?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -341,6 +361,7 @@ export type VideoMaxOrderByAggregateInput = {
   title?: Prisma.SortOrder
   youtubeId?: Prisma.SortOrder
   creator?: Prisma.SortOrder
+  thumbnail?: Prisma.SortOrder
   description?: Prisma.SortOrder
   transcript?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -351,6 +372,7 @@ export type VideoMinOrderByAggregateInput = {
   title?: Prisma.SortOrder
   youtubeId?: Prisma.SortOrder
   creator?: Prisma.SortOrder
+  thumbnail?: Prisma.SortOrder
   description?: Prisma.SortOrder
   transcript?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -392,6 +414,7 @@ export type VideoCreateWithoutTagsInput = {
   title: string
   youtubeId: string
   creator?: string | null
+  thumbnail?: string | null
   description?: string | null
   transcript?: string | null
   createdAt?: Date | string
@@ -402,6 +425,7 @@ export type VideoUncheckedCreateWithoutTagsInput = {
   title: string
   youtubeId: string
   creator?: string | null
+  thumbnail?: string | null
   description?: string | null
   transcript?: string | null
   createdAt?: Date | string
@@ -428,6 +452,7 @@ export type VideoUpdateWithoutTagsInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   youtubeId?: Prisma.StringFieldUpdateOperationsInput | string
   creator?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  thumbnail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   transcript?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -438,6 +463,7 @@ export type VideoUncheckedUpdateWithoutTagsInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   youtubeId?: Prisma.StringFieldUpdateOperationsInput | string
   creator?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  thumbnail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   transcript?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -479,6 +505,7 @@ export type VideoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   title?: boolean
   youtubeId?: boolean
   creator?: boolean
+  thumbnail?: boolean
   description?: boolean
   transcript?: boolean
   createdAt?: boolean
@@ -491,6 +518,7 @@ export type VideoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   title?: boolean
   youtubeId?: boolean
   creator?: boolean
+  thumbnail?: boolean
   description?: boolean
   transcript?: boolean
   createdAt?: boolean
@@ -501,6 +529,7 @@ export type VideoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   title?: boolean
   youtubeId?: boolean
   creator?: boolean
+  thumbnail?: boolean
   description?: boolean
   transcript?: boolean
   createdAt?: boolean
@@ -511,12 +540,13 @@ export type VideoSelectScalar = {
   title?: boolean
   youtubeId?: boolean
   creator?: boolean
+  thumbnail?: boolean
   description?: boolean
   transcript?: boolean
   createdAt?: boolean
 }
 
-export type VideoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "youtubeId" | "creator" | "description" | "transcript" | "createdAt", ExtArgs["result"]["video"]>
+export type VideoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "youtubeId" | "creator" | "thumbnail" | "description" | "transcript" | "createdAt", ExtArgs["result"]["video"]>
 export type VideoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   tags?: boolean | Prisma.Video$tagsArgs<ExtArgs>
   _count?: boolean | Prisma.VideoCountOutputTypeDefaultArgs<ExtArgs>
@@ -534,6 +564,7 @@ export type $VideoPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     title: string
     youtubeId: string
     creator: string | null
+    thumbnail: string | null
     description: string | null
     transcript: string | null
     createdAt: Date
@@ -965,6 +996,7 @@ export interface VideoFieldRefs {
   readonly title: Prisma.FieldRef<"Video", 'String'>
   readonly youtubeId: Prisma.FieldRef<"Video", 'String'>
   readonly creator: Prisma.FieldRef<"Video", 'String'>
+  readonly thumbnail: Prisma.FieldRef<"Video", 'String'>
   readonly description: Prisma.FieldRef<"Video", 'String'>
   readonly transcript: Prisma.FieldRef<"Video", 'String'>
   readonly createdAt: Prisma.FieldRef<"Video", 'DateTime'>

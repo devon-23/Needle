@@ -11,7 +11,10 @@ model Video {
   id          String   @id @default(cuid())
   title       String
   youtubeId   String   @unique
+
   creator     String?
+  thumbnail   String?
+
   description String?
   transcript  String?
 
